@@ -227,14 +227,14 @@ openpam_dynamic(const char *modname)
 		 * note of where the suffix begins so we can cut it off later.
 		 */
 		if (has_ver)
-			len = snprintf(modpath, sizeof modpath, "%s/%s%n",
-			    *path, modname, &dot);
+			len = snprintf(modpath, sizeof modpath, "%s/%s",
+			    *path, modname);
 		else if (has_so)
-			len = snprintf(modpath, sizeof modpath, "%s/%s%n.%d",
-			    *path, modname, &dot, LIB_MAJ);
+			len = snprintf(modpath, sizeof modpath, "%s/%s.%d",
+			    *path, modname, LIB_MAJ);
 		else
-			len = snprintf(modpath, sizeof modpath, "%s/%s%s%n.%d",
-			    *path, modname, PAM_SOEXT, &dot, LIB_MAJ);
+			len = snprintf(modpath, sizeof modpath, "%s/%s%s.%d",
+			    *path, modname, PAM_SOEXT, LIB_MAJ);
 		/* check for overflow */
 		if (len < 0 || (unsigned int)len >= sizeof modpath) {
 			errno = ENOENT;
