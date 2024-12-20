@@ -39,7 +39,7 @@ OPENPAM=	${SRCTOP}/contrib/openpam
 
 # static_libpam will build libpam.a
 .if !defined(LIB)
-SHLIB=	pam
+LIB=	pam
 .endif
 
 PACKAGE=	runtime
