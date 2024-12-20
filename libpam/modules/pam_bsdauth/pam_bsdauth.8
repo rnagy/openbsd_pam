@@ -1,0 +1,34 @@
+.Dd July 7, 2001
+.Dt PAM_BSDAUTH 8
+.Os
+.Sh NAME
+.Nm pam_bsdauth
+.Nd bsd_auth PAM module
+.Sh SYNOPSIS
+.Op Ar service-name
+.Ar module-type
+.Ar control-flag
+.Pa pam_bsdauth
+.Op Ar options
+.Sh DESCRIPTION
+The bsd_auth authentication service module for PAM,
+.Nm
+provides functionality for all the PAM categories:
+authentication,
+account management,
+session management and
+password management.
+In terms of the
+.Ar module-type
+parameter, these are the
+.Dq Li auth ,
+.Dq Li account ,
+.Dq Li session ,
+and
+.Dq Li password
+features.
+.Pp
+.Sh SEE ALSO
+.Xr syslog 3 ,
+.Xr pam.conf 5 ,
+.Xr pam 8
