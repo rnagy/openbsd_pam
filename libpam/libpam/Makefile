@@ -155,8 +155,6 @@ MLINKS?=	pam.conf.5 pam.d.5
 
 CFLAGS+= -I${OPENPAM}/include
 CFLAGS+= -DLIB_MAJ=${SHLIB_MAJOR}
-CFLAGS+= -DHAVE_DLFUNC=1
-CFLAGS+= -DHAVE_FDLOPEN=1
 CFLAGS+= -DHAVE_FPURGE=1
 CFLAGS+= -DHAVE_STRLCAT=1
 CFLAGS+= -DHAVE_STRLCPY=1
@@ -174,7 +172,5 @@ ADD_HEADERS=	security/pam_mod_misc.h
 # Headers
 INCS?=		${HEADERS} ${ADD_HEADERS}
 INCSDIR=	${INCLUDEDIR}/security
-
-.include <src.opts.mk>
 
 .include <bsd.lib.mk>
