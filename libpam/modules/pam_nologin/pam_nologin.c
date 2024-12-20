@@ -82,7 +82,11 @@ pam_sm_acct_mgmt(pam_handle_t *pamh, int flags,
 	 * if pwd->pw_uid is 0.  That class should have "ignorenologin"
 	 * capability so that super-user can bypass nologin.
 	 */
+#ifdef __OpenBSD__
+	lc = login_getclass(pwd->pw_class);
+#else
 	lc = login_getpwclass(pwd);
+#endif
 	if (lc == NULL) {
 		PAM_LOG("Unable to get login class for user %s", user);
 		return (PAM_SERVICE_ERR);
